@@ -4,15 +4,40 @@
 /* EN-TETE ---------------------------------------------------------------------------------------------------------- */
 
 body>header {
-    height: 6em;
+    height: 8em;
     text-align: center;
 }
 
-body>header>span>h1 {
+#titre {
+	text-align: center;
+	z-index:1;
+	position: absolute;
+	width: 100%;
+}
+
+body>header>div>span>h1 {
     display: inline-block;
     vertical-align: top;
     text-align: center;
-    margin-top:0.5em;
+    padding-top:0.7em;
+}
+
+#message_user {
+	height: 8em;
+	width: 15em;
+	background-color: red;
+	z-index: 10;
+	position: absolute;
+	right: 30px;
+}
+
+.button_header {
+	width: 70%;
+    border-radius: 15px;
+    padding-bottom: 0.2em;
+    margin-top: 1em;
+    padding-top: 0.2em;
+    /*margin: 5px 0;*/
 }
 
 nav {

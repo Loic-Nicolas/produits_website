@@ -2,7 +2,14 @@
     pageEncoding="ISO-8859-1"%>
 
     	<header>
-		    <span id="nomBlog"><h1>Produits</h1></span>
+    		<div style="height: 6em;" id="titre">
+    			<span id="nomBlog"><h1>Produits</h1></span>
+    		</div>
+    		<p id="message_user">
+    			<button id="button_connecter" name="connexion" class="button_header" onclick="">Connexion</button>
+    			
+    			<button id="button_inscrire" name="inscription" class="button_header" onclick="">Inscription</button>
+    		</p>
 		</header>
 		<hr>
 		
