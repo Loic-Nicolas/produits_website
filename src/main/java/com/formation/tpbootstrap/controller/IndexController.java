@@ -24,7 +24,7 @@ public class IndexController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String indexPost(final ModelMap pModel, HttpServletRequest request, @RequestParam("file") MultipartFile file) {
+	public String indexPost(final ModelMap pModel, HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
 		
