@@ -17,19 +17,19 @@
 			    <table>
 			        <tr>
 			            <td><label for="inpTitre">Titre :</label></td>
-			            <td><input id="inpTitre" name="TITRE" type="text" placeholder="Titre du produit"></td>
+			            <td><input id="inpTitre" name="TITRE" type="text" placeholder="Titre du produit" class="form-control"></td>
 			        </tr>
 			        <tr>
 			            <td><label for="inpPrix">Prix :</label></td>
-			            <td><input id="inpPrix" name="PRIX" type="text" placeholder="Prix du produit"></input></td>
+			            <td><input id="inpPrix" name="PRIX" type="text" placeholder="Prix du produit" class="form-control"></input></td>
 			        </tr>
 			        <tr>
 			            <td><label for="inpQuantite">Quantite :</label></td>
-			            <td><input id="inpQuantite" name="QUANTITE" type="text" placeholder="Quantite de produit"></input></td>
+			            <td><input id="inpQuantite" name="QUANTITE" type="text" placeholder="Quantite de produit" class="form-control"></input></td>
 			        </tr>
 			        <tr>
 			            <td><label for="inpDescription">Description :</label></td>
-			            <td><input id="inpDescription" name="DESCRIPTION" type="text" placeholder="Description du produit"></input></td>
+			            <td><input id="inpDescription" name="DESCRIPTION" type="text" placeholder="Description du produit" class="form-control"></input></td>
 			        </tr>
 			        <tfoot>
 			            <tr>

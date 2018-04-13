@@ -8,10 +8,13 @@ function $ (selecteur) {
 
 function affiche(id, titre, quantite, prix, description) {
 	var divPerso = document.createElement('td');
-	
+	//divPerso.style = 
 	var inputTitre = document.createElement('input');
 	inputTitre.type = 'text';
 	inputTitre.value = titre;
+	console.log("test");
+	console.log(inputTitre);
+	inputTitre.className = "form-control";
 	divPerso.appendChild(inputTitre);
 	$('#id_'+id).replaceChild(divPerso, $('#id_'+id).childNodes[1]);
 	
@@ -19,6 +22,7 @@ function affiche(id, titre, quantite, prix, description) {
 	var inputQuantite = document.createElement('input');
 	inputQuantite.type = 'text';
 	inputQuantite.value = quantite;
+	inputQuantite.className = "form-control";
 	divPerso.appendChild(inputQuantite);
 	$('#id_'+id).replaceChild(divPerso, $('#id_'+id).childNodes[3]);
 	
@@ -27,6 +31,7 @@ function affiche(id, titre, quantite, prix, description) {
 	var inputPrix = document.createElement('input');
 	inputPrix.type = 'text';
 	inputPrix.value = prix;
+	inputPrix.className = "form-control";
 	divPerso.appendChild(inputPrix);
 	$('#id_'+id).replaceChild(divPerso, $('#id_'+id).childNodes[5]);
 	
@@ -34,6 +39,7 @@ function affiche(id, titre, quantite, prix, description) {
 	var inputDescription = document.createElement('input');
 	inputDescription.type = 'text';
 	inputDescription.value = description;
+	inputDescription.className = "form-control";
 	divPerso.appendChild(inputDescription);
 	$('#id_'+id).replaceChild(divPerso, $('#id_'+id).childNodes[7]);
 	
@@ -45,7 +51,6 @@ function envoyer(){
 	var list_id = $('#list_ids').value.split("- -");
 	
 	for (var i = 0; i < list_id.length-1; i++) {
-		console.log(i);
 		$('#list_titres').value = $('#list_titres').value + $('#id_'+list_id[i]).childNodes[1].childNodes[0].value + '- -';
 		$('#list_quantites').value = $('#list_quantites').value + $('#id_'+list_id[i]).childNodes[3].childNodes[0].value + '- -';
 		$('#list_prix').value = $('#list_prix').value + $('#id_'+list_id[i]).childNodes[5].childNodes[0].value + '- -';

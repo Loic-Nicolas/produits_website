@@ -16,12 +16,12 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>Nom</th>
-					<th>Quantité</th>
-					<th>Prix</th>
-					<th>Description</th>
-					<th>Modifier</th>
-					<th>Supprimer</th>
+					<th style="width:20%;">Nom</th>
+					<th style="width:10%;">Quantité</th>
+					<th style="width:15%;">Prix</th>
+					<th style="width:25%;">Description</th>
+					<th style="width:10%;">Modifier</th>
+					<th style="width:10%;">Supprimer</th>
 				</tr>
 			</thead>
 			

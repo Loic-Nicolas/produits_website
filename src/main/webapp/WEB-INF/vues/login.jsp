@@ -17,11 +17,11 @@
 				<tbody>
 					<tr>
 						<td><label for="inpLogin">Login :</label></td>
-			            <td><input id="inpLogin" name="LOGIN" type="text" placeholder="Login"></td>
+			            <td><input id="inpLogin" name="LOGIN" type="text" placeholder="Login" class="form-control"></td>
 					</tr>
 					<tr>
 						<td><label for="inpMdp">Mot de passe :</label></td>
-			            <td><input id="inpMdp" name="MDP" type="password" placeholder="Mot de passe"></td>
+			            <td><input id="inpMdp" name="MDP" type="password" placeholder="Mot de passe" class="form-control"></td>
 					</tr>
 				</tbody>
 				<tfoot>

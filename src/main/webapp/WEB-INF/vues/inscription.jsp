@@ -17,27 +17,27 @@
 				<tbody>
 					<tr>
 						<td><label for="inpNom">Nom :</label></td>
-			            <td><input id="inpNom" name="NOM" type="text" placeholder="Nom"></td>
+			            <td><input id="inpNom" name="NOM" type="text" placeholder="Nom" class="form-control"></td>
 					</tr>
 					<tr>
 						<td><label for="inpPrenom">Prénom :</label></td>
-			            <td><input id="inpPrenom" name="PRENOM" type="text" placeholder="Prénom"></td>
+			            <td><input id="inpPrenom" name="PRENOM" type="text" placeholder="Prénom" class="form-control"></td>
 					</tr>
 					<tr>
 						<td><label for="inpEmail">E-mail :</label></td>
-			            <td><input id="inpEmail" name="EMAIL" type="text" placeholder="E-mail"></td>
+			            <td><input id="inpEmail" name="EMAIL" type="text" placeholder="E-mail" class="form-control"></td>
 					</tr>
 					<tr>
 						<td><label for="inpDateNaissance">Date de naissance :</label></td>
-			            <td><input id="inpDateNaissance" name="DATENAISSANCE" type="text" placeholder="Date de naissance"></td>
+			            <td><input id="inpDateNaissance" name="DATENAISSANCE" type="text" placeholder="Date de naissance" class="form-control"></td>
 					</tr>
 					<tr>
 						<td><label for="inpLogin">Login :</label></td>
-			            <td><input id="inpLogin" name="LOGIN" type="text" placeholder="Login"></td>
+			            <td><input id="inpLogin" name="LOGIN" type="text" placeholder="Login" class="form-control"></td>
 					</tr>
 					<tr>
 						<td><label for="inpMdp">Mot de passe :</label></td>
-			            <td><input id="inpMdp" name="MDP" type="password" placeholder="Mot de passe"></td>
+			            <td><input id="inpMdp" name="MDP" type="password" placeholder="Mot de passe" class="form-control"></td>
 					</tr>
 				</tbody>
 				<tfoot>
