@@ -13,8 +13,6 @@
 	<body>
 		<jsp:include page="./inc/_header.jsp"></jsp:include>
 		
-		<!-- <img src="/tpbootstrap/ressources/images/chaton.png" /> -->
-		
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -47,17 +45,6 @@
 			        		<%=produit.getDescription() %>
 			        	</td>
 			        	<td>
-			        		<!--<form action="./produit" method="POST">
-			        		<form onsubmit="affiche(<%=produit.getId() %>, <%=produit.getTitre() %>)">
-			        			<input name="prodId" type="hidden" value="<%=produit.getId() %>">
-			        			<input name="modifier" type="hidden" value="false">
-			        			<input name="TITRE" type="hidden" value="null">
-			        			<input name="PRIX" type="hidden" value="0">
-			        			<input name="QUANTITE" type="hidden" value="0">
-			        			<input name="DESCRIPTION" type="hidden" value="null">
-			        			<input type="submit" value="Modifier" class="button_gestion">
-			        		</form>
-			        		-->
 			        		<button name="data" type="button" class="button_gestion" onclick="affiche(<%=produit.getId() %>, '<%=produit.getTitre() %>',
 			        		'<%=produit.getQuantite() %>', '<%=produit.getPrix() %>', '<%=produit.getDescription() %>')">Modifier</button>
 			        	</td>
