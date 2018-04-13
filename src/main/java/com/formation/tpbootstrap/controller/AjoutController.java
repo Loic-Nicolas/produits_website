@@ -61,6 +61,7 @@ public class AjoutController {
 					statement = connexion.createStatement();
 					resultat = statement.executeUpdate("INSERT INTO produits.produits (nom, quantite, prix, description) VALUES ('" + titre + "', '" + quantite + "', '" + prix + "', '" + description + "');");
 					
+					pModel.addAttribute("ADDED", true);
 				} catch (ClassNotFoundException e) {
 					System.out.println("erreur1 : " + e.getMessage());
 				} catch (SQLException e) {
@@ -81,8 +82,6 @@ public class AjoutController {
 						}
 					}
 				}
-				
-				pModel.addAttribute("ADDED", true);
 			} catch (NumberFormatException e) {
 				pModel.addAttribute("BADREQUEST", true);
 			}

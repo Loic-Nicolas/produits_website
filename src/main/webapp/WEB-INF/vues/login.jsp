@@ -21,7 +21,7 @@
 					</tr>
 					<tr>
 						<td><label for="inpMdp">Mot de passe :</label></td>
-			            <td><input id="inpMdp" name="MDP" type="text" placeholder="Mot de passe"></td>
+			            <td><input id="inpMdp" name="MDP" type="password" placeholder="Mot de passe"></td>
 					</tr>
 				</tbody>
 				<tfoot>
@@ -31,6 +31,17 @@
 		        </tfoot>
 			</table>
 		</form>
+		
+		<% if (request.getAttribute("BADREQUEST") != null) {
+			if (request.getAttribute("BADREQUEST").equals("true")) {%>
+			<div id="bad">
+				Mauvaise identification
+			</div>
+		<% } else if (request.getAttribute("BADREQUEST").equals("false")) {%>
+			<div id="added">
+				Bienvenue !
+			</div>
+		<% } }%>
 		
 		<jsp:include page="./inc/_footer.jsp"></jsp:include>
 	</body>

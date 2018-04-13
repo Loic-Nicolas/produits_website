@@ -25,10 +25,15 @@ body>header>div>span>h1 {
 #message_user {
 	height: 8em;
 	width: 15em;
-	background-color: red;
+	/*background-color: red;*/
+	margin-top: 1.5em;
 	z-index: 10;
 	position: absolute;
 	right: 30px;
+}
+
+#message_perso {
+	font-weight: bolder;
 }
 
 .button_header {
@@ -75,6 +80,10 @@ table tfoot tr {
 }
 
 input[type=text] {
+    width: 80%;
+}
+
+input[type=password] {
     width: 80%;
 }
 

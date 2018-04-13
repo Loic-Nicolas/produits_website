@@ -77,7 +77,7 @@
 			<div id="bad">
 				Valeurs invalides
 			</div>
-			<% } %>
+		<% } %>
 		
 		<jsp:include page="./inc/_footer.jsp"></jsp:include>
 	</body>

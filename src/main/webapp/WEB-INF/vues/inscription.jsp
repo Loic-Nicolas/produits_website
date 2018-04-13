@@ -12,7 +12,7 @@
 	<body>
 		<jsp:include page="./inc/_header.jsp"></jsp:include>
 		
-		<form action="./login" method="POST">
+		<form action="./inscription" method="POST">
 			<table>
 				<tbody>
 					<tr>
@@ -28,12 +28,16 @@
 			            <td><input id="inpEmail" name="EMAIL" type="text" placeholder="E-mail"></td>
 					</tr>
 					<tr>
+						<td><label for="inpDateNaissance">Date de naissance :</label></td>
+			            <td><input id="inpDateNaissance" name="DATENAISSANCE" type="text" placeholder="Date de naissance"></td>
+					</tr>
+					<tr>
 						<td><label for="inpLogin">Login :</label></td>
 			            <td><input id="inpLogin" name="LOGIN" type="text" placeholder="Login"></td>
 					</tr>
 					<tr>
 						<td><label for="inpMdp">Mot de passe :</label></td>
-			            <td><input id="inpMdp" name="MDP" type="text" placeholder="Mot de passe"></td>
+			            <td><input id="inpMdp" name="MDP" type="password" placeholder="Mot de passe"></td>
 					</tr>
 				</tbody>
 				<tfoot>
@@ -43,6 +47,16 @@
 		        </tfoot>
 			</table>
 		</form>
+		
+		<% if (request.getAttribute("BADREQUEST") != null) { %>
+			<div id="bad">
+				Mauvaises valeurs
+			</div>
+		<% } else if (request.getAttribute("DUPLICATE") != null) {%>
+			<div id="bad">
+				Utilisateur existe déjà
+			</div>
+		<% } %>
 		
 		<jsp:include page="./inc/_footer.jsp"></jsp:include>
 	</body>

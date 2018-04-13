@@ -31,7 +31,7 @@ public class UserFilter implements Filter {
 		
 		HttpSession session = request.getSession();
 		
-		System.out.println("on filtre");
+		//System.out.println("on filtre");
 		
 		if (session.getAttribute(ATT_SESSION_USER) == null) {
 			response.sendRedirect(request.getContextPath() + ACCES_PUBLIC);

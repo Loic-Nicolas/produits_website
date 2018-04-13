@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.formation.tpbootstrap.beans.Produit;
 
 @Controller
-@RequestMapping("/gestion")
+@RequestMapping("/user/gestion")
 public class GestionController {
 	
 	@RequestMapping(method = RequestMethod.GET)
