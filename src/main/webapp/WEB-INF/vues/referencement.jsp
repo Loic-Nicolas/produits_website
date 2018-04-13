@@ -12,7 +12,7 @@
 	<body>
 		<jsp:include page="./inc/_header.jsp"></jsp:include>
 		
-		<table class="table table-striped">
+		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th>Nom</th>

@@ -6,7 +6,9 @@
     			<span id="nomBlog"><h1>Produits</h1></span>
     		</div>
     		<p id="message_user">
-    			<button id="button_connecter" name="connexion" class="button_header" onclick="">Connexion</button>
+    			<a target="_self" href="<%=request.getContextPath() %>/login" class="liens">
+    			<button id="button_connecter" name="connexion" class="button_header">Connexion</button>
+    			</a>
     			
     			<button id="button_inscrire" name="inscription" class="button_header" onclick="">Inscription</button>
     		</p>
