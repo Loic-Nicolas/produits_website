@@ -1,5 +1,9 @@
 package com.formation.tpbootstrap.controller;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -8,11 +12,14 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.imageio.ImageIO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.formation.tpbootstrap.beans.Produit;
 
@@ -89,6 +96,23 @@ public class ProduitController {
 		}
 		
 		pModel.addAttribute("prod", produit);
+		
+		return "produit";
+	}
+	
+	@RequestMapping(method = RequestMethod.POST)
+	public String produitPost(@RequestParam("file") MultipartFile file, final ModelMap pModel) {
+		
+		try {
+		if (!file.isEmpty()) {
+			 BufferedImage src = ImageIO.read(new ByteArrayInputStream(file.getBytes()));
+			 File destination = new File("C:/Users/ib/Documents/workspace-sts-3.9.3.RELEASE/tpbootstrap/src/main/webapp/ressources/images/test.png"); // something like C:/Users/tom/Documents/nameBasedOnSomeId.png
+			 ImageIO.write(src, "png", destination);
+			 //Save the id you have used to create the file name in the DB. You can retrieve the image in future with the ID.
+			 }
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
 		
 		return "produit";
 	}

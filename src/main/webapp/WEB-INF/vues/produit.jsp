@@ -44,6 +44,15 @@
 			</tbody>
 		</table>
 		
+		<form method="POST" action="./produit"
+		    enctype="multipart/form-data">
+		
+		
+		    Please select a file to upload : <input type="file" name="file" />
+		    <input type="submit" value="upload" />
+		
+		</form>
+		
 		<jsp:include page="./inc/_footer.jsp"></jsp:include>
 	</body>
 </html>
