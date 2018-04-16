@@ -19,6 +19,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.formation.tpbootstrap.beans.Produit;
@@ -101,7 +102,11 @@ public class ProduitController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String produitPost(@RequestParam("file") MultipartFile file, final ModelMap pModel) {
+	public @ResponseBody
+	String produitPost(@RequestParam(value="file", defaultValue="none") MultipartFile file, final ModelMap pModel) {
+		
+		System.out.println(file);
+		
 		
 		try {
 		if (!file.isEmpty()) {
@@ -113,6 +118,7 @@ public class ProduitController {
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
+		
 		
 		return "produit";
 	}

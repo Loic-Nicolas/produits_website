@@ -21,6 +21,8 @@ public class InscriptionController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String inscriptionGet(final ModelMap pModel) {
 		
+		
+		
 		return "inscription";
 	}
 	

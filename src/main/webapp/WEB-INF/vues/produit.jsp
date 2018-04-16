@@ -44,11 +44,9 @@
 			</tbody>
 		</table>
 		
-		<form method="POST" action="./produit"
-		    enctype="multipart/form-data">
+		<form method="POST" action="./produit" enctype="multipart/form-data">
 		
-		
-		    Please select a file to upload : <input type="file" name="file" />
+		    Please select a file to upload : <input type="file" name="file" size = "50"/>
 		    <input type="submit" value="upload" />
 		
 		</form>
