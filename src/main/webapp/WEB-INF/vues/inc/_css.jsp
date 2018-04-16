@@ -122,4 +122,14 @@ input[type=password] {
 	color: rgb(255, 0, 0);;
 }
 
+#div_image {
+	margin-top: 2em;
+	text-align:center;
+}
+
+#image_produit {
+	margin-bottom: 2em;
+	height: 15em;
+}
+
 </style>

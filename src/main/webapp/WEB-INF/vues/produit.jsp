@@ -12,6 +12,9 @@
 	<body>
 		<jsp:include page="./inc/_header.jsp"></jsp:include>
 		
+		<%if (request.getAttribute("prod") != null) {
+	    	Produit produit = (Produit)request.getAttribute("prod");
+		%>
 		<table>
 			<thead>
 				<tr>
@@ -23,9 +26,8 @@
 			</thead>
 			
 			<tbody>
-				<%if (request.getAttribute("prod") != null) {
-			    	Produit produit = (Produit)request.getAttribute("prod");
-				%>
+				
+					
 					<tr>
 			        	<td>
 			        		<%=produit.getTitre() %>
@@ -40,16 +42,41 @@
 			        		<%=produit.getDescription() %>
 			        	</td>
 			        </tr>
-				<%}%>
+				
 			</tbody>
 		</table>
 		
-		<form method="POST" action="./produit" enctype="multipart/form-data">
+		<div id="div_image">
+			<% if (produit.getImage() != null) { %>
+				<img id="image_produit" alt="<%=produit.getTitre()%>" src="/tpbootstrap/ressources/images/image_<%=produit.getId()%>.png">
+			<%} %>
+			
+			<table style="width: 40%;">
+				<tr>
+					<td style="width: 60%;">
+						<form method="POST" action="./produit" enctype="multipart/form-data">
+							<input id="id_produit" name="id_produit" type="hidden" value="<%= produit.getId() %>">
+						    Image : <input type="file" name="file" size = "50" class="button_gestion"/>
+						    <br>
+						    <input type="submit" value="Upload" class="button_gestion" style="width: 30%"/>
+						</form>
+					</td>
+					<td style="width: 40%;">
+						<% if (produit.getImage() != null) { %>
+							<form method="POST" action="./produit" enctype="multipart/form-data">
+								<input name="supprimer" type="hidden" value="true">
+								<input type="file" name="file" size = "50" style="display: none;"/>
+								<input id="id_produit" name="id_produit" type="hidden" value="<%= produit.getId() %>">
+								<input id="suppr" type="image" src="/tpbootstrap/ressources/images/supprimer.png" alt="Supprimer image" style="width: 5em;">
+							</form>
+						<%} %>
+					</td>
+				</tr>
+			</table>
+			
+		</div>
 		
-		    Please select a file to upload : <input type="file" name="file" size = "50"/>
-		    <input type="submit" value="upload" />
-		
-		</form>
+		<%}%>
 		
 		<jsp:include page="./inc/_footer.jsp"></jsp:include>
 	</body>

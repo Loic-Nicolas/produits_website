@@ -42,30 +42,24 @@ public class ProduitController {
 		Produit produit = new Produit();
 		
 		try {
-			// Chargement du Driver
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			System.out.println("Chargement ok !");
-			
-			// Etablit la connexion
 			connexion = DriverManager.getConnection(url, root, mdp);
-			System.out.println("Connexion BDD ok !");
-			
-			// Requete
 			statement = connexion.createStatement();
 			resultat = statement.executeQuery("SELECT * FROM PRODUITS WHERE id = " + id + "");
-			// aussi executeUpdate pour faire un changement dans la BDD
 			
 			while(resultat.next()) {
 				String nom = resultat.getString("nom");
 				int quantite = resultat.getInt("quantite");
 				float prix = resultat.getFloat("prix");
 				String description = resultat.getString("description");
+				String image= resultat.getString("image");
 				
 				produit.setId(id);
 				produit.setTitre(nom);
 				produit.setQuantite(quantite);
 				produit.setPrix(prix);
 				produit.setDescription(description);
+				produit.setImage(image);
 			}
 			
 		} catch (ClassNotFoundException e) {
@@ -102,25 +96,92 @@ public class ProduitController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public @ResponseBody
-	String produitPost(@RequestParam(value="file", defaultValue="none") MultipartFile file, final ModelMap pModel) {
+	//public @ResponseBody
+	public String produitPost(@RequestParam(value="file") MultipartFile file, final ModelMap pModel, @RequestParam(value="id_produit") int id,
+			@RequestParam(value="supprimer", defaultValue="") final String supprimer) {
 		
-		System.out.println(file);
+		String url = "jdbc:mysql://127.0.0.1:3306/produits?useLegacyDatetimeCode=false&serverTimezone=UTC";
+		String root = "root";
+		String mdp = "Pass123!";
 		
+		Connection connexion = null;
+		Statement statement = null;
+		ResultSet resultat = null;
+		
+		Produit produit = new Produit();
 		
 		try {
-		if (!file.isEmpty()) {
-			 BufferedImage src = ImageIO.read(new ByteArrayInputStream(file.getBytes()));
-			 File destination = new File("C:/Users/ib/Documents/workspace-sts-3.9.3.RELEASE/tpbootstrap/src/main/webapp/ressources/images/test.png"); // something like C:/Users/tom/Documents/nameBasedOnSomeId.png
-			 ImageIO.write(src, "png", destination);
-			 //Save the id you have used to create the file name in the DB. You can retrieve the image in future with the ID.
-			 }
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			connexion = DriverManager.getConnection(url, root, mdp);
+			statement = connexion.createStatement();
+			
+			if (supprimer.equals("true")) {
+				statement.executeUpdate("UPDATE produits.produits SET image=NULL WHERE id = '" + id + "';");
+			} else {
+				if (!file.isEmpty()) {
+					BufferedImage src = ImageIO.read(new ByteArrayInputStream(file.getBytes()));
+					String fileName = "C:/Users/ib/Documents/workspace-sts-3.9.3.RELEASE/tpbootstrap/src/main/webapp/ressources/images/image_" + id + ".png";
+					File destination = new File(fileName); // something like C:/Users/tom/Documents/nameBasedOnSomeId.png
+					
+					ImageIO.write(src, "png", destination);
+					/*
+					 * Pour que le changement soit pris en compte dans le projet il faut faire
+					 * Window/Preferences/General/Workspace -> "Refresh using native hooks and polling" (et peut-être "Refresh on access" mais j'ai pas encore eu besoin)
+					 */
+					
+					statement.executeUpdate("UPDATE produits.produits SET image='" + fileName + "' WHERE id = '" + id + "';");
+				}
+			}
+			
+			resultat = statement.executeQuery("SELECT * FROM PRODUITS WHERE id = " + id + "");
+			
+			while(resultat.next()) {
+				String nom = resultat.getString("nom");
+				int quantite = resultat.getInt("quantite");
+				float prix = resultat.getFloat("prix");
+				String description = resultat.getString("description");
+				String image= resultat.getString("image");
+				
+				produit.setId(id);
+				produit.setTitre(nom);
+				produit.setQuantite(quantite);
+				produit.setPrix(prix);
+				produit.setDescription(description);
+				produit.setImage(image);
+			}
+			
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
+		} catch (ClassNotFoundException e) {
+			System.out.println("erreur1 : " + e.getMessage());
+		} catch (SQLException e) {
+			System.out.println("erreur2 : " + e.getMessage());
+		} finally {
+			if (resultat != null) {
+				try {
+					resultat.close();
+				} catch (SQLException e) {
+					System.out.println("erreur3 : " + e.getMessage());
+				}
+			}
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					System.out.println("erreur4 : " + e.getMessage());
+				}
+			}
+			if (connexion != null) {
+				try {
+					connexion.close();
+				} catch (SQLException e) {
+					System.out.println("erreur5 : " + e.getMessage());
+				}
+			}
 		}
 		
+		pModel.addAttribute("prod", produit);
 		
 		return "produit";
 	}
-	
 }
