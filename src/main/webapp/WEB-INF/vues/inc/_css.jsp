@@ -122,4 +122,10 @@ input[type=password] {
 	color: rgb(255, 0, 0);;
 }
 
+#noId {
+	padding-top: 1em;
+	text-align: center;
+	font-size: 1.2em;
+}
+
 </style>

@@ -32,6 +32,10 @@
 			</table>
 		</form>
 		
+		<div id="noId">
+			Pas d'identifiants ? <a target="_self" href="<%=request.getContextPath() %>/inscription" class="liens">Inscrivez-vous !</a>
+		</div>
+		
 		<% if (request.getAttribute("BADREQUEST") != null) {
 			if (request.getAttribute("BADREQUEST").equals("true")) {%>
 			<div id="bad">
