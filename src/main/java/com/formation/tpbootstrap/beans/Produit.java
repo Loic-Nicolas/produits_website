@@ -1,5 +1,6 @@
 package com.formation.tpbootstrap.beans;
 
+// classe représentant un produit enregistré
 public class Produit {
 
 	int id = 0;

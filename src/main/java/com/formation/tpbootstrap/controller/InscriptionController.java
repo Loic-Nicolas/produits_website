@@ -32,6 +32,7 @@ public class InscriptionController {
 			@RequestParam(value="DATENAISSANCE", defaultValue="") final String dateNaissance, @RequestParam(value="LOGIN", defaultValue="") final String login,
 			@RequestParam(value="MDP", defaultValue="") final String mdp) {
 		
+		// on vérifie que les champs de la requête sont valides
 		if (nom.equals("") || prenom.equals("") || email.equals("") || dateNaissance.equals("") || login.equals("") || mdp.equals("")) {
 			pModel.addAttribute("BADREQUEST", true);
 		} else {
@@ -44,16 +45,12 @@ public class InscriptionController {
 			int resultat = 0;
 			
 			try {
-				// Chargement du Driver
+				// connexion à la BDD
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				
-				// Etablit la connexion
 				connexion = DriverManager.getConnection(url, root, mdp_sql);
-				
-				// Requete
 				statement = connexion.createStatement();
+				// on rajoute l'utilisateur dans la BDD
 				resultat = statement.executeUpdate("INSERT INTO produits.utilisateurs (nom, prenom, email, date_naissance, login, mdp) VALUES ('" + nom + "', '" + prenom + "', '" + email + "', '" + dateNaissance + "', '" + login + "', '" + mdp + "');");
-
 			} catch (ClassNotFoundException e) {
 				System.out.println("erreur1 : " + e.getMessage());
 			} catch (SQLException e) {
@@ -63,7 +60,6 @@ public class InscriptionController {
 					pModel.addAttribute("DUPLICATE", true);
 				}
 			}
-			
 		}
 		
 		return "inscription";

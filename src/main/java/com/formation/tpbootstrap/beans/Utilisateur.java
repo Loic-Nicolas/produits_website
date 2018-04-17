@@ -1,5 +1,6 @@
 package com.formation.tpbootstrap.beans;
 
+// classe représentant un utilisateur du site
 public class Utilisateur {
 	
 	String nom = "";

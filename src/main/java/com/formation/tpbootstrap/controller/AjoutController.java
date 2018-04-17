@@ -49,24 +49,19 @@ public class AjoutController {
 				float prix = Float.parseFloat(prix_str);
 				
 				try {
-					// Chargement du Driver
+					// connexion à la BDD
 					Class.forName("com.mysql.cj.jdbc.Driver");
-					System.out.println("Chargement ok !");
-					
-					// Etablit la connexion
 					connexion = DriverManager.getConnection(url, root, mdp);
-					System.out.println("Connexion BDD ok !");
-					
-					// Requete
 					statement = connexion.createStatement();
-					resultat = statement.executeUpdate("INSERT INTO produits.produits (nom, quantite, prix, description) VALUES ('" + titre + "', '" + quantite + "', '" + prix + "', '" + description + "');");
 					
+					// requête mySQL : on rajoute le produit dans la BDD
+					resultat = statement.executeUpdate("INSERT INTO produits.produits (nom, quantite, prix, description) VALUES ('" + titre + "', '" + quantite + "', '" + prix + "', '" + description + "');");
 					pModel.addAttribute("ADDED", true);
 				} catch (ClassNotFoundException e) {
 					System.out.println("erreur1 : " + e.getMessage());
 				} catch (SQLException e) {
 					System.out.println("erreur2 : " + e.getMessage());
-				} finally {
+				} finally { // on ferme les variables
 					if (statement != null) {
 						try {
 							statement.close();

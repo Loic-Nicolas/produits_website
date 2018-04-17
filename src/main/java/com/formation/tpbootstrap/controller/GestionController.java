@@ -34,19 +34,13 @@ public class GestionController {
 		List listeBillets = new LinkedList();
 		
 		try {
-			// Chargement du Driver
+			// connexion à la BDD
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			System.out.println("Chargement ok !");
-			
-			// Etablit la connexion
 			connexion = DriverManager.getConnection(url, root, mdp);
-			System.out.println("Connexion BDD ok !");
-			
-			// Requete
 			statement = connexion.createStatement();
-			resultat = statement.executeQuery("SELECT * FROM PRODUITS");
-			// aussi executeUpdate pour faire un changement dans la BDD
 			
+			// on récupère les produits de la BDD et on forme la liste des produits
+			resultat = statement.executeQuery("SELECT * FROM PRODUITS");
 			while(resultat.next()) {
 				String nom = resultat.getString("nom");
 				int quantite = resultat.getInt("quantite");
@@ -68,7 +62,7 @@ public class GestionController {
 			System.out.println("erreur1 : " + e.getMessage());
 		} catch (SQLException e) {
 			System.out.println("erreur2 : " + e.getMessage());
-		} finally {
+		} finally { // on ferme les objets de connexion
 			if (resultat != null) {
 				try {
 					resultat.close();
@@ -113,24 +107,18 @@ public class GestionController {
 		
 		List listeBillets = new LinkedList();
 		
+		// connexion à la BDD
 		try {
-			// Chargement du Driver
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			System.out.println("Chargement ok !");
-			
-			// Etablit la connexion
 			connexion = DriverManager.getConnection(url, root, mdp);
-			System.out.println("Connexion BDD ok !");
-			
-			// Requete
 			statement = connexion.createStatement();
-			
 		} catch (ClassNotFoundException e) {
 			System.out.println("erreur1 : " + e.getMessage());
 		} catch (SQLException e) {
 			System.out.println("erreur2 : " + e.getMessage());
 		}
 		
+		// si on a cliqué sur MODIFIER
 		if (modifier.equals("true")) {
 			String[] id_mod_str = list_ids.split("- -");
 			String[] titre_mod = list_titres.split("- -");
@@ -140,6 +128,7 @@ public class GestionController {
 			
 			boolean check = true;
 			
+			// vérification que les champs de la requête sont valides
 			for (int i = 0; i < id_mod_str.length; i++) {
 				if (titre_mod[i]=="" || prix_mod_str[i]=="" || quantite_mod_str[i]=="" || description_mod[i]=="") {
 					pModel.addAttribute("BADREQUEST", true);
@@ -155,6 +144,7 @@ public class GestionController {
 				}
 			}
 			
+			// si c'est valide, on fait la mise à jour des produits
 			if (check) {
 				for (int i = 0; i < id_mod_str.length; i++) {
 					int id_mod = Integer.parseInt(id_mod_str[i]);
@@ -172,6 +162,7 @@ public class GestionController {
 				}
 			}
 			
+		// si on a cliqué sur SUPPRIMER
 		} else if (supprimer.equals("true")) {
 			try {
 				statement.executeUpdate("DELETE FROM produits.produits WHERE id="+id+";");
@@ -180,6 +171,7 @@ public class GestionController {
 			}
 		}
 		
+		// on récupère la liste des produits
 		try {
 			resultat = statement.executeQuery("SELECT * FROM PRODUITS");
 			// aussi executeUpdate pour faire un changement dans la BDD
@@ -203,7 +195,7 @@ public class GestionController {
 			
 		} catch (SQLException e) {
 			System.out.println("erreur2 : " + e.getMessage());
-		} finally {
+		} finally { // on ferme les objets de connexion
 			if (resultat != null) {
 				try {
 					resultat.close();
