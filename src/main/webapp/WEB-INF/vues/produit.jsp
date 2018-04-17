@@ -58,7 +58,7 @@
 							<input id="id_produit" name="id_produit" type="hidden" value="<%= produit.getId() %>">
 						    Image : <input type="file" name="file" size = "50" class="button_gestion"/>
 						    <br>
-						    <input type="submit" value="Upload" class="button_gestion" style="width: 30%"/>
+						    <input type="submit" value="Upload" class="button_gestion button_greenho" style="width: 30%"/>
 						</form>
 					</td>
 					<td style="width: 40%;">

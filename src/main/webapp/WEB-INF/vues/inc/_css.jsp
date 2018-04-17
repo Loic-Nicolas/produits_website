@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
 <style>
 	
 /* EN-TETE ---------------------------------------------------------------------------------------------------------- */
@@ -50,6 +51,21 @@ nav {
     margin-bottom: 1em;
     text-align: center;
     font-size: 1.3em;
+}
+
+.button_redho:hover {
+	background-color: #CE5937;
+	color: #FFFFFF;
+}
+
+.button_greenho:hover {
+	background-color: #50E240;
+	color: #FFFFFF;
+}
+
+.button_blueho:hover {
+	background-color: #413BE2;
+	color: #FFFFFF;
 }
 
 /* FOOTER ---------------------------------------------------------------------------------------------------------- */

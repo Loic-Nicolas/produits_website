@@ -45,14 +45,14 @@
 			        		<%=produit.getDescription() %>
 			        	</td>
 			        	<td>
-			        		<button name="data" type="button" class="button_gestion" onclick="affiche(<%=produit.getId() %>, '<%=produit.getTitre() %>',
+			        		<button name="data" type="button" class="button_gestion button_blueho" onclick="affiche(<%=produit.getId() %>, '<%=produit.getTitre() %>',
 			        		'<%=produit.getQuantite() %>', '<%=produit.getPrix() %>', '<%=produit.getDescription() %>')">Modifier</button>
 			        	</td>
 			        	<td>
 			        		<form action="./gestion" method="POST">
 			        			<input name="supprimer" type="hidden" value="true">
 			        			<input name="prodId" type="hidden" value="<%=produit.getId() %>">
-			        			<input type="submit" value="Supprimer" class="button_gestion">
+			        			<input type="submit" value="Supprimer" class="button_gestion button_redho">
 			        		</form>
 			        	</td>
 			        </tr>
