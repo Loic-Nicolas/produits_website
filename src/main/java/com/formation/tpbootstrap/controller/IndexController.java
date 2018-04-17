@@ -26,6 +26,7 @@ public class IndexController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String indexPost(final ModelMap pModel, HttpServletRequest request) {
 		
+		// déconnexion de l'utilisateur
 		HttpSession session = request.getSession();
 		
 		session.invalidate();

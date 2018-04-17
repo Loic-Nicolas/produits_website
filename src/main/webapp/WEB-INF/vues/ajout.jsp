@@ -33,7 +33,7 @@
 			        </tr>
 			        <tfoot>
 			            <tr>
-			                <td colspan="2"><input type="submit" value="Envoyer" class="submit"></td>
+			                <td colspan="2"><input type="submit" value="Envoyer" class="submit button_blueho"></td>
 			            </tr>
 			        </tfoot>
 			    </table>

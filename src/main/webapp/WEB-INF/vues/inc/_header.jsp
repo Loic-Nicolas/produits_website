@@ -15,17 +15,17 @@
 	   				
 	   				<section>
 	    				<form action="<%=request.getContextPath() %>/" method="POST">
-			    			<input id="button_deconnecter" name="deconnexion" type="submit" value="Déconnexion" class="button_header">
+			    			<input id="button_deconnecter" name="deconnexion" type="submit" value="Déconnexion" class="button_header button_redho">
 			    		</form>
 	   				</section>
 	   			</span>
     		<% } else { %>
     			<a target="_self" href="<%=request.getContextPath() %>/login" class="liens">
-    			<button id="button_connecter" name="connexion" class="button_header">Connexion</button>
+    			<button id="button_connecter" name="connexion" class="button_header button_greenho">Connexion</button>
     			</a>
     			
     			<a target="_self" href="<%=request.getContextPath() %>/inscription" class="liens">
-    			<button id="button_inscrire" name="inscription" class="button_header" onclick="">Inscription</button>
+    			<button id="button_inscrire" name="inscription" class="button_header button_blueho" onclick="">Inscription</button>
     			</a>
     		<% } %>
     		</section>

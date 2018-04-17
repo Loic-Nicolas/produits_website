@@ -33,19 +33,13 @@ public class ReferencementController {
 		List listeBillets = new LinkedList();
 		
 		try {
-			// Chargement du Driver
+			// connexion à la BDD
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			System.out.println("Chargement ok !");
-			
-			// Etablit la connexion
 			connexion = DriverManager.getConnection(url, root, mdp);
-			System.out.println("Connexion BDD ok !");
-			
-			// Requete
 			statement = connexion.createStatement();
-			resultat = statement.executeQuery("SELECT * FROM PRODUITS");
-			// aussi executeUpdate pour faire un changement dans la BDD
 			
+			// on récupère la liste des produits
+			resultat = statement.executeQuery("SELECT * FROM PRODUITS");
 			while(resultat.next()) {
 				String nom = resultat.getString("nom");
 				int quantite = resultat.getInt("quantite");
@@ -67,7 +61,7 @@ public class ReferencementController {
 			System.out.println("erreur1 : " + e.getMessage());
 		} catch (SQLException e) {
 			System.out.println("erreur2 : " + e.getMessage());
-		} finally {
+		} finally { // on ferme les objets de connexion
 			if (resultat != null) {
 				try {
 					resultat.close();

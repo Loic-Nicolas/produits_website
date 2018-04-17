@@ -46,18 +46,13 @@ public class LoginController {
 		boolean connected = false;
 		
 		try {
-			// Chargement du Driver
+			// connexion à la BDD
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			System.out.println("Chargement ok !");
-			
-			// Etablit la connexion
 			connexion = DriverManager.getConnection(url, root, mdp_mysql);
-			System.out.println("Connexion BDD ok !");
-			
-			// Requete
 			statement = connexion.createStatement();
-			resultat = statement.executeQuery("SELECT * FROM UTILISATEURS");
 			
+			// on récupère la liste des utilisateurs
+			resultat = statement.executeQuery("SELECT * FROM UTILISATEURS");
 			while(resultat.next()) {
 				if (login.equals(resultat.getString("login")) && mdp.equals(resultat.getString("mdp"))) {
 					pModel.addAttribute("BADREQUEST", "false");
@@ -73,7 +68,7 @@ public class LoginController {
 			System.out.println("erreur1 : " + e.getMessage());
 		} catch (SQLException e) {
 			System.out.println("erreur2 : " + e.getMessage());
-		} finally {
+		} finally { // on ferme les objets de connexion
 			if (resultat != null) {
 				try {
 					resultat.close();
@@ -97,6 +92,7 @@ public class LoginController {
 			}
 		}
 		
+		// si c'est pas des bons identifiants, on déconnecte
 		if (connected == false ) {
 			session.invalidate();
 		}

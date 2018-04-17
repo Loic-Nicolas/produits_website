@@ -1,5 +1,6 @@
 package com.formation.tpbootstrap.beans;
 
+// classe représentant un produit enregistré
 public class Produit {
 
 	int id = 0;
@@ -7,7 +8,14 @@ public class Produit {
 	int quantite = 0;
 	float prix = 0;
 	String description = null;
+	String image = null;
 	
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	public int getId() {
 		return id;
 	}
