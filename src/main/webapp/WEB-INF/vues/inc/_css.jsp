@@ -148,4 +148,8 @@ input[type=password] {
 	height: 15em;
 }
 
+#suppr:hover {
+	transform: translateY(-7px) translateX(-7px);
+}
+
 </style>
